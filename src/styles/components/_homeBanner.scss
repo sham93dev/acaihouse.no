@@ -1,0 +1,36 @@
+/* src/components/page-section/home/HomeBanner.scss */
+
+.home-banner {
+  background-color: #702c91; // Lilla bakgrunn
+  color: white;
+
+  h1 {
+    color: white;
+  }
+
+  p {
+    color: #aefb4c; // Grønn tekst
+  }
+}
+
+.banner-wrapper {
+  min-height: 90vh; // Nesten full viewport-høyde
+  display: flex;
+  align-items: stretch;
+}
+
+.home-banner-thumb {
+  width: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease;
+
+  @media (min-width: 768px) {
+    min-height: 200px;
+  }
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}

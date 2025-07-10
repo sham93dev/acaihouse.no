@@ -1,0 +1,29 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "./utils/variables";
+
+$theme-colors: map-merge(
+  (
+    "beige-light": $beige-light,
+    "green-light": $green-light,
+    "green-light-100": $green-light-100,
+    "orange-light": $orange-light,
+    "orange-light-100": $orange-light-100,
+    "gray-light": $gray-light,
+    "blue-light": $blue-light,
+    "dark-purple": $dark-purple
+  ),
+  $theme-colors
+);
+
+// Bootstrap imports
+@import "~bootstrap/scss/bootstrap";
+
+//Own
+@import "./layout/layout";
+@import "./layout/navbar";
+@import "./layout/footer";
+@import "components/homeBanner";
+@import "./layout//buttons";
+@import "./layout/navbarTop"
+

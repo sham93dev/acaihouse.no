@@ -1,0 +1,50 @@
+.navbar-top {
+  background-color: $dark-purple;
+  color: white;
+  font-size: 0.9rem;
+  overflow: hidden;
+  padding: 1rem 0;
+  position: relative;
+  z-index: 1040;
+
+  @media (max-width: 576px) {
+    font-size: 0.75rem;
+    padding: 1rem 0;
+  }
+}
+
+.ticker {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.ticker-track {
+  display: flex;
+  min-width: 200%;
+  animation: ticker-scroll 25s linear infinite;
+
+  @media (max-width: 576px) {
+    animation-duration: 18s;
+  }
+}
+
+.ticker-track span {
+  display: inline-block;
+  padding-right: 2rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  @media (max-width: 576px) {
+    padding-right: 1.25rem;
+  }
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
