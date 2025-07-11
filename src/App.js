@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarTop from './components/NavbarTop';
 import NavbarComponent from './components/Navbar';
 import Home from './pages/Home';
+import HomeBannerProductSetup from './components/page-section/home/HomeBannerProductSetup';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <NavbarComponent />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/produkt/:slug" element={<HomeBannerProductSetup />} /> 
       </Routes>
     </Router>
   );

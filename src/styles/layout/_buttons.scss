@@ -22,30 +22,15 @@
 // OUTLINE BUTTON
 .btn-acai-outline {
   background-color: transparent;
-  border: 2px solid $green-light-100;
-  color: $green-light-100;
+  border: 2px solid $white;
+  color: $white;
   padding: 0.6rem 1.4rem;
-  border-radius: 2rem;
+  border-radius: .6rem;
   font-weight: 500;
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: $green-light-100;
-    color: #000;
-  }
-}
-
-// ORANGE ACCENT BUTTON
-.btn-acai-orange {
-  background-color: $orange-light;
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1.4rem;
-  border-radius: 1.5rem;
-  font-weight: 500;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    background-color: darken($orange-light, 10%);
+    background-color: darken(white, 10%);
+    color: black;
   }
 }

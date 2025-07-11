@@ -4,6 +4,12 @@ import { Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function HomeBanner() {
+  const bowls = [
+    { name: 'bowl1', label: 'Tropisk Drøm' },
+    { name: 'bowl2', label: 'Energiboost' },
+    { name: 'bowl3', label: 'Amazon Mix' },
+  ];
+
   return (
     <div className="home-banner w-100">
       {/* Desktop Layout */}
@@ -24,13 +30,21 @@ function HomeBanner() {
             <div className="col-12 col-md-6 d-flex flex-column justify-content-center p-4 p-md-5 order-1 order-md-2">
               {/* Thumbnails */}
               <div className="row g-3 mt-0 pt-3 d-none d-md-flex mb-5">
-                {['bowl1', 'bowl2', 'bowl3'].map((bowl, i) => (
+                {bowls.map((bowl, i) => (
                   <div className="col-4" key={`desktop-thumb-${i}`}>
-                    <img
-                      src={`/assets/${bowl}.jpg`}
-                      alt={`Bowl ${i + 1}`}
-                      className="img-fluid rounded home-banner-thumb"
-                    />
+                    <Link to={`/produkt/${bowl.name}`} className="text-decoration-none">
+                      <div className="thumbnail-wrapper position-relative">
+                        <img
+                          src={`/assets/${bowl.name}.jpg`}
+                          alt={bowl.label}
+                          className="img-fluid home-banner-thumb"
+                        />
+                        <div className="thumbnail-overlay d-flex flex-column justify-content-center align-items-center text-center px-2">
+                          <span className="thumbnail-title mb-1">{bowl.label}</span>
+                          <span className="thumbnail-readmore text-accent small">Les mer →</span>
+                        </div>
+                      </div>
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -45,19 +59,45 @@ function HomeBanner() {
                   Fuel your body, not your cravings
                 </h1>
 
-                <Link to="https://wolt.com/nb/nor/oslo/restaurant/acai-house" className="text-decoration-none">
-                  <Button
-                    variant="outline-success"
-                    className="btn-acai-primary btn-lg px-4 py-2 mb-3 d-flex align-items-center gap-2 mt-3"
+                <div className="d-flex flex-column flex-md-row align-items-center gap-3 mt-3">
+                  <a
+                    href="https://wolt.com/nb/nor/oslo/restaurant/acai-house"
+                    className="text-decoration-none"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    Bestill fra Wolt
-                    <img
-                      src="./assets/wolt_logo.png"
-                      alt="Wolt logo"
-                      style={{ height: '29px', width: 'auto' }}
-                    />
-                  </Button>
-                </Link>
+                    <Button
+                      variant="primary"
+                      className="btn-acai-outline btn-lg px-4 py-2 d-flex align-items-center gap-2"
+                    >
+                      Bestill fra
+                      <img
+                        src="./assets/wolt_logo.png"
+                        alt="Wolt logo"
+                        style={{ height: '29px', width: 'auto' }}
+                      />
+                    </Button>
+                  </a>
+
+                  <a
+                    href="https://www.foodora.no/restaurant/some-id/acai-house"
+                    className="text-decoration-none"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button
+                      variant="outline-danger"
+                      className="btn-acai-primary btn-lg px-4 py-2 d-flex align-items-center gap-2"
+                    >
+                      Bestill fra
+                      <img
+                        src="./assets/foodora_logo.png"
+                        alt="Foodora logo"
+                        style={{ height: '29px', width: 'auto' }}
+                      />
+                    </Button>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -83,31 +123,64 @@ function HomeBanner() {
           <h1 className="fw-bold text-xl-display">
             Fuel your body, not your cravings
           </h1>
-          <Link to="/acai" className="text-decoration-none">
-            <Button
-              variant="outline-success"
-              className="btn-acai-primary btn-lg px-4 py-2 mt-3 d-flex align-items-center gap-2 mx-0 mx-lg-auto"
+          <div className="d-flex flex-column flex-md-row align-items-center gap-3 mt-3">
+            <a
+              href="https://wolt.com/nb/nor/oslo/restaurant/acai-house"
+              className="text-decoration-none"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Bestill fra Wolt
-              <img
-                src="./assets/wolt_logo.png"
-                alt="Wolt logo"
-                style={{ height: '29px', width: 'auto' }}
-              />
-            </Button>
-          </Link>
+              <Button
+                variant="outline-success"
+                className="btn-acai-primary btn-lg px-4 py-2 d-flex align-items-center gap-2"
+              >
+                Bestill fra Wolt
+                <img
+                  src="./assets/wolt_logo.png"
+                  alt="Wolt logo"
+                  style={{ height: '29px', width: 'auto' }}
+                />
+              </Button>
+            </a>
+            <a
+              href="https://www.foodora.no/restaurant/some-id/acai-house"
+              className="text-decoration-none"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                variant="outline-danger"
+                className="btn-acai-primary btn-lg px-4 py-2 d-flex align-items-center gap-2"
+              >
+                Bestill fra Foodora
+                <img
+                  src="./assets/foodora_logo.png"
+                  alt="Foodora logo"
+                  style={{ height: '29px', width: 'auto' }}
+                />
+              </Button>
+            </a>
+          </div>
         </div>
 
         {/* Thumbnails under banner */}
         <Container className="p-5">
           <div className="row g-3">
-            {['bowl1', 'bowl2', 'bowl3'].map((bowl, i) => (
+            {bowls.map((bowl, i) => (
               <div className="col-4" key={`mobile-thumb-${i}`}>
-                <img
-                  src={`/assets/${bowl}.jpg`}
-                  alt={`Bowl ${i + 1}`}
-                  className="img-fluid rounded home-banner-thumb"
-                />
+                <Link to={`/produkt/${bowl.name}`} className="text-decoration-none">
+                  <div className="thumbnail-wrapper position-relative">
+                    <img
+                      src={`/assets/${bowl.name}.jpg`}
+                      alt={bowl.label}
+                      className="img-fluid home-banner-thumb"
+                    />
+                    <div className="thumbnail-overlay d-flex flex-column justify-content-center align-items-center text-center px-2">
+                      <span className="thumbnail-title mb-1">{bowl.label}</span>
+                      <span className="thumbnail-readmore text-accent small">Les mer →</span>
+                    </div>
+                  </div>
+                </Link>
               </div>
             ))}
           </div>
