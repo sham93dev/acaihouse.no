@@ -1,7 +1,7 @@
 /* src/components/page-section/home/HomeBanner.scss */
 
 .home-banner {
-  background-color: #702c91; // Lilla bakgrunn
+  background-color:#702c91; // Lilla bakgrunn
   color: white;
 
   h1 {
@@ -21,7 +21,7 @@
 
 .home-banner-thumb {
   width: 100%;
-  min-height: 220px;
+  min-height: 250px !important;
   object-fit: cover;
   border-radius: 0.5rem;
   transition: transform 0.2s ease;
@@ -32,5 +32,24 @@
 
   &:hover {
     transform: scale(1.03);
+  }
+}
+
+
+.text-xl-display {
+  font-size: 6rem;
+  line-height: 1.1;
+  font-weight: 700; // tilsvarer fw-bold
+
+  @media (max-width: 992px) {
+    font-size: 4.5rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 3.5rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 2.5rem;
   }
 }
