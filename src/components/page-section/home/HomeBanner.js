@@ -45,10 +45,10 @@ function HomeBanner() {
                   Fuel your body, not your cravings
                 </h1>
 
-                <Link to="/acai" className="text-decoration-none">
+                <Link to="https://wolt.com/nb/nor/oslo/restaurant/acai-house" className="text-decoration-none">
                   <Button
                     variant="outline-success"
-                    className="btn-acai-primary btn-lg px-4 py-2 mb-3 d-flex align-items-center gap-2 mt-5"
+                    className="btn-acai-primary btn-lg px-4 py-2 mb-3 d-flex align-items-center gap-2 mt-3"
                   >
                     Bestill fra Wolt
                     <img
@@ -99,7 +99,7 @@ function HomeBanner() {
         </div>
 
         {/* Thumbnails under banner */}
-        <Container className="mt-5 pt-4">
+        <Container className="p-5">
           <div className="row g-3">
             {['bowl1', 'bowl2', 'bowl3'].map((bowl, i) => (
               <div className="col-4" key={`mobile-thumb-${i}`}>

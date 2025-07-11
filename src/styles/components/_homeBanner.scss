@@ -26,14 +26,15 @@
   border-radius: 0.5rem;
   transition: transform 0.2s ease;
 
-  @media (min-width: 768px) {
-    min-height: 200px;
+  @media (max-width: 991.98px) {
+    min-height: 150px !important;
   }
 
   &:hover {
     transform: scale(1.03);
   }
 }
+
 
 .text-xl-display {
   font-size: 6rem;
@@ -56,7 +57,7 @@
 /* Mobile + Tablet layout */
 .home-banner-mobile {
   position: relative;
-  height: 100vh;
+  height: 60vh;
   background-color: #702c91;
 
   .mobile-banner-image {
@@ -69,7 +70,7 @@
     }
 
     .overlay {
-      background: rgba(0, 0, 0, 0.45);
+      background: rgba(0, 0, 0, 0.63);
       position: absolute;
       top: 0;
       left: 0;
@@ -96,7 +97,7 @@
 
     @media (max-width: 576px) {
       h1 {
-        font-size: 3.4rem;
+        font-size: 3.2rem;
       }
 
       p {
