@@ -1,5 +1,3 @@
-/* src/components/page-section/home/HomeBanner.scss */
-
 .home-banner {
   background-color: #702c91;
   color: white;
@@ -27,7 +25,7 @@
   transition: transform 0.2s ease;
 
   @media (max-width: 991.98px) {
-    min-height: 150px !important;
+    min-height: 160px !important;
   }
 
   &:hover {
@@ -53,7 +51,6 @@
   }
 }
 
-/* Mobile + Tablet layout */
 .home-banner-mobile {
   position: relative;
   height: 60vh;
@@ -124,7 +121,6 @@
     transition: opacity 0.3s ease;
     z-index: 2;
     padding: 0.5rem;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -136,12 +132,20 @@
       font-size: 1.2rem;
       font-weight: 600;
       margin-bottom: 0.25rem;
+
+      @media (max-width: 576px) {
+        font-size: 0.8rem;
+      }
     }
 
     .thumbnail-readmore {
       color: #aefb4c;
       font-weight: 500;
       font-size: 0.9rem;
+
+      @media (max-width: 576px) {
+        font-size: 0.65rem;
+      }
     }
   }
 
@@ -161,4 +165,21 @@
 .text-accent {
   color: #aefb4c;
   font-weight: 500;
+}
+
+@media (max-width: 576px) {
+  .small-button {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .thumbnail-wrapper .thumbnail-overlay {
+    opacity: 0;
+  }
+
+  .thumbnail-wrapper.active .thumbnail-overlay {
+    opacity: 1;
+  }
 }

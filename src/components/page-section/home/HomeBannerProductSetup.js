@@ -1,4 +1,3 @@
-// src/components/page-section/home/HomeBannerProductSetup.js
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
@@ -8,7 +7,7 @@ function HomeBannerProductSetup() {
 
   const bowls = {
     bowl1: {
-      title: 'Tropisk Drøm',
+      title: 'Berry Power Boost',
       description: 'En frisk kombinasjon av mango, banan og kokos. Perfekt etter trening eller på varme dager.',
       image: '/assets/bowl1.jpg',
     },
