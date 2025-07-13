@@ -12,7 +12,8 @@ $theme-colors: map-merge(
     "gray-light": $gray-light,
     "blue-light": $blue-light,
     "dark-purple": $dark-purple,
-    "light-purple": $light-purple
+    "light-purple": $light-purple,
+    "product-bg": $product-bg,
   ),
   $theme-colors
 );
@@ -26,5 +27,5 @@ $theme-colors: map-merge(
 @import "./layout/footer";
 @import "components/homeBanner";
 @import "./layout//buttons";
-@import "./layout/navbarTop"
+@import "./layout/navbarTop";
 
