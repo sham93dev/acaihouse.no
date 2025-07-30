@@ -9,13 +9,15 @@ import {
   Card,
   Carousel,
   Form,
+  Breadcrumb,
 } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { products } from '../../data/acaibowls';
 
 export default function ProductDetails() {
   const { slug } = useParams();
   const product = products.find((p) => p.slug === slug);
-  const [size, setSize] = useState(''); // Liten, Stor, eller tom
+  const [size, setSize] = useState('Medium'); // ✅ Default til Medium
 
   if (!product) {
     return (
@@ -26,15 +28,20 @@ export default function ProductDetails() {
     );
   }
 
-  // Prislogikk
-  const getAdjustedPrice = () => {
-    if (size === 'Liten') return product.price - 20;
-    if (size === 'Stor') return product.price + 20;
-    return product.price;
+  const getPrice = () => {
+    return product.sizes?.[size] || product.price || 0;
   };
 
   return (
     <Container className="py-5">
+      {/* 🔗 Breadcrumbs */}
+      <Breadcrumb className="mb-4">
+        <Breadcrumb.Item linkAs={Link} linkProps={{ to: '/produkter' }}>
+          Alle produkter
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active>{product.title}</Breadcrumb.Item>
+      </Breadcrumb>
+
       <Row className="gx-5 gy-5 align-items-start">
         {/* Bilder */}
         <Col lg={6}>
@@ -64,25 +71,29 @@ export default function ProductDetails() {
           >
             {product.category}
           </Badge>
-          <h2 className="fw-bold display-3">{product.title}</h2>
-          <h4 className="text-muted mb-3 fs-1">
-            Kr {getAdjustedPrice().toLocaleString('no-NO')},-
+          <h2 className="fw-bold display-3 text-light-purple">{product.title}</h2>
+          <h4 className="text-black mb-3 fs-1">
+            Kr {getPrice().toLocaleString('no-NO')},-
           </h4>
           <p>{product.description}</p>
 
           {/* Størrelsevalg */}
-          <Form.Group className="mb-4 mt-1" controlId="sizeSelect">
-            <Form.Label className="fw-semibold">Velg størrelse</Form.Label>
-            <Form.Select
-              aria-label="Velg størrelse"
-              value={size}
-              onChange={(e) => setSize(e.target.value)}
-            >
-              <option value="">Velg størrelse</option>
-              <option value="Liten">Liten</option>
-              <option value="Stor">Stor</option>
-            </Form.Select>
-          </Form.Group>
+          {product.sizes && (
+            <Form.Group className="mb-4 mt-1" controlId="sizeSelect">
+              <Form.Label className="fw-semibold">Velg størrelse</Form.Label>
+              <Form.Select
+                aria-label="Velg størrelse"
+                value={size}
+                onChange={(e) => setSize(e.target.value)}
+              >
+                {Object.entries(product.sizes).map(([label, _price]) => (
+                  <option key={label} value={label}>
+                    {label}
+                  </option>
+                ))}
+              </Form.Select>
+            </Form.Group>
+          )}
 
           {/* Innhold + allergener */}
           <div className="d-flex flex-wrap mt-4" style={{ gap: '10px' }}>

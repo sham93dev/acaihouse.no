@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarTop from './components/layout/NavbarTop';
 import NavbarComponent from './components/layout/Navbar';
 import Home from './pages/Home';
 import ProductDetails from './components/product/ProductDetails'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
