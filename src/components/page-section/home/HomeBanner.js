@@ -1,7 +1,7 @@
-// src/components/page-section/home/HomeBanner.js
 import React, { useState, useEffect, useCallback } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import { products } from '../../../data/acaibowls';
 
 function HomeBanner() {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -18,11 +18,11 @@ function HomeBanner() {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [handleClickOutside]);
 
-  const bowls = [
-    { name: 'bowl1', label: 'Berry Power Boost' },
-    { name: 'bowl2', label: 'Energiboost' },
-    { name: 'bowl3', label: 'Amazon Mix' },
-  ];
+  const bannerProducts = products.map((p) => ({
+    ...p,
+    label: p.label || p.title,
+    image: p.image || p.images?.[0],
+  }));
 
   return (
     <div className="home-banner w-100">
@@ -40,13 +40,14 @@ function HomeBanner() {
             </div>
 
             <div className="col-12 col-md-6 d-flex flex-column justify-content-center p-4 p-md-5 order-1 order-md-2">
+              {/* Thumbnails */}
               <div className="row g-3 mt-0 pt-3 d-none d-md-flex mb-5">
-                {bowls.map((bowl, i) => (
+                {bannerProducts.map((bowl, i) => (
                   <div className="col-4" key={`desktop-thumb-${i}`}>
-                    <Link to={`/produkt/${bowl.name}`} className="text-decoration-none">
+                    <Link to={`/produkt/${bowl.slug}`} className="text-decoration-none">
                       <div className="thumbnail-wrapper position-relative">
                         <img
-                          src={`/assets/${bowl.name}.jpg`}
+                          src={bowl.image}
                           alt={bowl.label}
                           className="img-fluid home-banner-thumb"
                         />
@@ -60,12 +61,13 @@ function HomeBanner() {
                 ))}
               </div>
 
+              {/* Tekst og knapper */}
               <div className="text-center text-md-start d-flex flex-column align-items-center align-items-md-start">
                 <p className="lead mb-0 text-green-light-100 fs-5 mt-2 fw-medium">
                   Fra Amazonas til Oslo – ekte açaí, akkurat som den skal smake.
                 </p>
 
-                <h1 className="fw-bold text-xl-display mb-3 mt-0 mt-md-0">
+                <h1 className="fw-bold display-2 mb-3 mt-0 mt-md-0">
                   Fuel your body, not your cravings
                 </h1>
 
@@ -162,7 +164,7 @@ function HomeBanner() {
                 variant="outline-danger"
                 className="btn-acai-primary px-3 py-2 d-flex align-items-center gap-2 small-button"
               >
-                Bestill fra 
+                Bestill fra
                 <img
                   src="./assets/foodora_logo.png"
                   alt="Foodora logo"
@@ -175,20 +177,20 @@ function HomeBanner() {
 
         <Container className="p-5">
           <div className="row g-3">
-            {bowls.map((bowl, i) => (
+            {bannerProducts.map((bowl, i) => (
               <div className="col-4" key={`mobile-thumb-${i}`}>
                 <div
                   className={`thumbnail-wrapper position-relative ${activeIndex === i ? 'active' : ''}`}
                   onClick={() => {
                     if (activeIndex === i) {
-                      navigate(`/produkt/${bowl.name}`);
+                      navigate(`/produkt/${bowl.slug}`);
                     } else {
                       setActiveIndex(i);
                     }
                   }}
                 >
                   <img
-                    src={`/assets/${bowl.name}.jpg`}
+                    src={bowl.image}
                     alt={bowl.label}
                     className="img-fluid home-banner-thumb"
                   />
