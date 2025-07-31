@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { products } from '../../../data/acaibowls';
+import { products } from '../../../../data/acaibowls';
 
 export default function TopThreeMobile() {
   const [activeIndex, setActiveIndex] = useState(null);
