@@ -12,7 +12,7 @@ export default function PartnersSection() {
   ];
 
   return (
-    <section className="partners-section py-5 bg-white">
+    <section className="partners-section py-5 mt-5  bg-white">
       <Container>
         <div className="text-center mb-4">
           <h2 className="fw-bold display-5 text-light-purple">Våre samarbeidspartnere</h2>

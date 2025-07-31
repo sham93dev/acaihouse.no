@@ -15,6 +15,7 @@ function NavbarComponent() {
             <Nav.Link as={Link} to="/bestill">Bestill</Nav.Link>
             <Nav.Link as={Link} to="/acai">Acai</Nav.Link>
             <Nav.Link as={Link} to="/kontakt">Kontakt oss</Nav.Link>
+            <Nav.Link as={Link} to="/kontakt">Om oss</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

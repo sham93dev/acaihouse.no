@@ -1,0 +1,143 @@
+
+
+// === ANIMASJONER ===
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+// === KLASSER ===
+.news-highlight-section {
+  background-color: #702c91;
+  padding: 5rem 0;
+  position: relative;
+  z-index: 0;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.pulse-badge {
+  animation: pulse 2s infinite;
+}
+
+// === Dekorative sirkler ===
+.decorative-circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  z-index: 0;
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+// === Individuelle sirkler ===
+.circle-1 {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  left: -50px;
+}
+
+.circle-2 {
+  width: 60px;
+  height: 60px;
+  bottom: 5%;
+  right: 10%;
+  animation-delay: 1s;
+}
+
+.circle-3 {
+  width: 390px;
+  height: 390px;
+  top: 10%;
+  right: -40px;
+  animation-delay: 2s;
+}
+
+.circle-4 {
+  width: 120px;
+  height: 120px;
+  bottom: -30px;
+  right: 15%;
+  animation-delay: 3s;
+}
+
+.circle-5 {
+  width: 270px;
+  height: 270px;
+  top: 92%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+.circle-6 {
+  width: 90px;
+  height: 90px;
+  bottom: 35%;
+  left: 50%;
+  animation-delay: 5s;
+}
+
+// Kun på små skjermer: hvit bakgrunn og mørk tekst
+// === Mobil: hvit bakgrunn og mørk tekst kun på små skjermer ===
+@media (max-width: 767.98px) {
+  .bg-white-full-sm {
+    background-color: white;
+    color: #212529;
+    width: 100%;
+    padding: 2rem 1rem;
+
+    h2, p, a, .btn, .badge {
+      color: #212529 !important;
+    }
+
+    .btn {
+      background-color: #f8f9fa;
+      border-color: #f8f9fa;
+
+      &:hover {
+        background-color: #e2e6ea;
+        border-color: #dae0e5;
+      }
+    }
+  }
+
+  .news-highlight-section {
+    padding: 0;
+  }
+
+  .news-highlight-section .row {
+    flex-direction: column-reverse;
+  }
+
+  .news-highlight-section .col-md-6 {
+    width: 100%;
+  }
+}

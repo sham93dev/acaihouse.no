@@ -13,6 +13,7 @@ $theme-colors: map-merge(
     "blue-light": $blue-light,
     "dark-purple": $dark-purple,
     "light-purple": $light-purple,
+    "light-yellow": $light-yellow,
     "product-bg": $product-bg,
   ),
   $theme-colors
@@ -28,5 +29,6 @@ $theme-colors: map-merge(
 @import "components/homeBanner";
 @import "./layout//buttons";
 @import "./layout/navbarTop";
-@import "./components/productCard"
+@import "./components/productCard";
+@import "./components//newsHighlight";
 
