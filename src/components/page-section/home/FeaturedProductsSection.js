@@ -10,34 +10,24 @@ function getRandomProducts(arr, n) {
 
 export default function FeaturedProductsSection() {
   const featured = products.filter((p) => p.featured);
-
   const randomProducts = useMemo(() => getRandomProducts(featured, 4), [featured]);
 
   return (
-    <section className="featured-products-section py-5 px-5 bg-light">
+    <section className="featured-products-section py-5 px-3 px-md-5 pt-4 bg-light">
       <Container>
         <div className="text-center mb-4 pt-5 pb-3">
           <h2 className="fw-bold display-4 text-light-purple">Hvilken blir din favoritt?</h2>
           <p className="text-muted fs-5">Ekte açaí – Slik det smaker i Brasil</p>
         </div>
 
-        {/* Desktop grid */}
-        <Row className="d-none d-md-flex">
+        {/* Grid – 2 cols på mobil, 4 på desktop */}
+        <Row>
           {randomProducts.map((product) => (
-            <Col md={3} key={product.slug} className="mb-4">
+            <Col xs={6} md={3} key={product.slug} className="mb-4">
               <ProductCard product={product} />
             </Col>
           ))}
         </Row>
-
-        {/* Mobile carousel */}
-        <div className="d-md-none d-flex overflow-auto gap-3 pb-3 px-1">
-          {randomProducts.map((product) => (
-            <div key={product.slug} style={{ minWidth: '90%' }}>
-              <ProductCard product={product} />
-            </div>
-          ))}
-        </div>
 
         <div className="text-center mt-4">
           <Link to="/produkter">
