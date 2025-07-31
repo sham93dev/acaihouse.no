@@ -5,25 +5,42 @@ import { Link } from 'react-router-dom';
 export default function NewsHighlight() {
   return (
     <>
-      {/* Bølgeovergang fra forrige seksjon */}
+      {/* Øvre bølgeovergang – dryppende açaí-stil */}
       <div className="wave-top bg-light p-0 m-0">
         <svg
-          viewBox="0 0 1440 100"
+          viewBox="0 0 1440 150"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="none"
-          style={{ display: 'block', width: '100%', height: '100px' }}
+          style={{
+            display: 'block',
+            width: '100%',
+            height: '150px',
+            transform: 'rotate(180deg)',
+          }}
         >
           <path
-            d="M0,100 C360,0 1080,100 1440,0 L1440,100 L0,100 Z"
+            d="M0,0 
+              C96,30 192,60 288,40 
+              C384,20 480,60 576,40 
+              C672,20 768,60 864,40 
+              C960,20 1056,60 1152,40 
+              C1248,20 1344,60 1440,30 
+              L1440,0 
+              Z"
             fill="#702c91"
           />
         </svg>
       </div>
 
-      {/* Nyhetsseksjon med lilla bakgrunn */}
+      {/* Nyhetsseksjon – lilla med midtstilt innhold */}
       <section
-        className="news-highlight-section position-relative overflow-hidden py-5"
-        style={{ backgroundColor: '#702c91' }}
+        className="news-highlight-section position-relative overflow-hidden d-flex align-items-center"
+        style={{
+          backgroundColor: '#702c91',
+          minHeight: '700px',
+          paddingTop: '4rem',
+          paddingBottom: '4rem',
+        }}
       >
         {/* Dekorative sirkler */}
         <div className="decorative-circle circle-1"></div>
@@ -34,12 +51,12 @@ export default function NewsHighlight() {
 
         <Container>
           <Row className="align-items-center g-5 flex-column-reverse flex-md-row">
-            {/* Tekst */}
+            {/* Tekstinnhold */}
             <Col
               md={6}
-              className="fade-in-up z-1 text-center text-md-start d-flex flex-column align-items-center align-items-md-start bg-white-full-sm"
+              className="fade-in-up z-1 text-center text-md-start d-flex flex-column align-items-center align-items-md-start"
             >
-              <Badge bg="warning" className="mb-3 px-3 py-2 fs-6 text-dark pulse-badge">
+              <Badge bg="warning" className="mb-3 px-3 py-2 fs-3 text-dark pulse-badge">
                 NYHET
               </Badge>
               <h2 className="fw-bold display-5 display-md-1 text-white">
@@ -66,7 +83,7 @@ export default function NewsHighlight() {
               <img
                 src="/assets/acaipuree3.png"
                 alt="Tropisk Açaí 5.8L puree"
-                className="img-fluid rounded-2 acai-img-responsive"
+                className="img-fluid rounded-2"
                 style={{
                   objectFit: 'cover',
                   maxWidth: '650px',
