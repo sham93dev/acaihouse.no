@@ -32,7 +32,7 @@ export default function FeaturedProductsSection() {
 
           <div className="text-center mt-4">
             <Link to="/produkter">
-              <Button className="bg-light-purple border-0 btn-lg" variant="primary">
+              <Button className="bg-light-purple border-0 btn-lg mt-5" variant="primary">
                 Jeg vil se alle
               </Button>
             </Link>

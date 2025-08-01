@@ -19,17 +19,16 @@ function HomeBanner() {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [handleClickOutside]);
 
-const bannerProducts = products
-  .filter((p) => p.topSeller === true)
-  .map((p) => ({
-    ...p,
-    label: p.title,
-    image: p.images?.[0] || '/assets/placeholder.jpg',
-  }));
-
+  const bannerProducts = products
+    .filter((p) => p.topSeller === true)
+    .map((p) => ({
+      ...p,
+      label: p.title,
+      image: p.images?.[0] || '/assets/placeholder.jpg',
+    }));
 
   return (
-    <div className="home-banner w-100">
+    <div className="home-banner w-100 position-relative" style={{ zIndex: 1 }}>
       {/* Desktop Layout */}
       <div className="d-none d-lg-block">
         <Container fluid className="g-0">
@@ -44,7 +43,6 @@ const bannerProducts = products
             </div>
 
             <div className="col-12 col-md-6 d-flex flex-column justify-content-center p-4 p-md-5 order-1 order-md-2">
-              {/* Thumbnails – kun på store skjermer */}
               <div className="row g-3 mt-0 pt-3 mb-5">
                 {bannerProducts.map((bowl, i) => (
                   <div className="col-4" key={`desktop-thumb-${i}`}>
@@ -65,17 +63,16 @@ const bannerProducts = products
                 ))}
               </div>
 
-              {/* Tekst og knapper */}
               <div className="text-center text-md-start d-flex flex-column align-items-center align-items-md-start">
-                <p className="lead mb-0 text-green-light-100 fs-5 mt-2 fw-medium">
+                <p className="lead mb-0 text-green-light-100 fs-6 mt-2 fw-medium">
                   Fra Amazonas til Oslo – ekte açaí, akkurat som den skal smake.
                 </p>
 
-                <h1 className="fw-bold display-2 mb-3 mt-0 mt-md-0">
+                <h1 className="fw-bold display-5 mb-3 mt-0 mt-md-0">
                   Fuel your body, not your cravings
                 </h1>
 
-                <div className="d-flex flex-column flex-md-row align-items-center gap-3 mt-3">
+                <div className="d-flex flex-column flex-md-row align-items-center gap-3 mt-3 mb-5">
                   <a
                     href="https://wolt.com/nb/nor/oslo/restaurant/acai-house"
                     className="text-decoration-none"
@@ -120,7 +117,7 @@ const bannerProducts = products
         </Container>
       </div>
 
-      {/* Mobile + Tablet Layout (banner og tekst, men ingen thumbs) */}
+      {/* Mobile + Tablet Layout */}
       <div className="d-block d-lg-none home-banner-mobile position-relative text-white">
         <div className="mobile-banner-image position-relative w-100 h-100">
           <img
@@ -131,7 +128,7 @@ const bannerProducts = products
           <div className="overlay position-absolute top-0 start-0 w-100 h-100"></div>
         </div>
 
-        <div className=" text-center banner-content-overlay position-absolute top-50 start-50 translate-middle px-3">
+        <div className="text-center banner-content-overlay position-absolute top-50 start-50 translate-middle px-3">
           <p className="lead text-green-light-100 fs-5">
             Fra Amazonas til Oslo – ekte açaí, akkurat som den skal smake.
           </p>
@@ -179,6 +176,37 @@ const bannerProducts = products
           </div>
         </div>
       </div>
+
+      {/* Skrå avslutning – bilde til venstre, farge til høyre */}
+<div
+  className="position-absolute bottom-0 start-0 w-100 overflow-hidden"
+  style={{ zIndex: 2 }}
+>
+  <svg
+    viewBox="0 0 1440 150"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="none"
+    style={{ width: '100%', height: '40px', display: 'block' }}
+  >
+    <path
+      d="
+        M0,90 
+        C10,90 20,100 100,70 
+        C240,50 300,120 360,90 
+        C420,70 480,140 540,100 
+        C600,60 660,130 720,90 
+        C780,50 840,110 900,80 
+        C960,60 1020,120 1080,90 
+        C1140,70 1200,130 1260,100 
+        C1320,80 1380,110 1440,90 
+        L1440,150 
+        L0,150 
+        Z"
+      fill="#f8f9fa"
+    />
+  </svg>
+</div>
+
     </div>
   );
 }
