@@ -5,6 +5,7 @@ import FeaturedProductsSection from '../components/page-section/home/FeaturedPro
 import TopThreeMobile from '../components/page-section/home/mobile-view/TopThreeMobile';
 import PartnersSection from '../components/page-section/home/PartnersSection';
 import NewsHighlight from '../components/page-section/home/NewsHighlight';
+import AboutTeaserSection from '../components/page-section/home/AboutTeaserSection';
 import Footer from '../components/layout/Footer';
 
 function Home() {
@@ -13,6 +14,7 @@ function Home() {
       <HomeBanner />
       <FeaturedProductsSection />
       <NewsHighlight />
+      <AboutTeaserSection />
       <PartnersSection />
       <Footer />
     </div>

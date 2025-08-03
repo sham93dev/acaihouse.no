@@ -44,3 +44,10 @@ h1, h2, h3, h4, h5, h6 {
     height: 100px;
   }
 }
+
+@media (max-width: 991px) {
+  .sticky-sidebar {
+    position: relative !important;
+    height: auto !important;
+  }
+}

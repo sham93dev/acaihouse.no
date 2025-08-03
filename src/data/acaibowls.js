@@ -6,6 +6,9 @@ export const products = [
     title: 'Golden Passion',
     featured: true,
     topSeller: true,
+    isNew: true,
+    type: 'Acaibowls',
+    tags: ['Eksotisk', 'Frisk'],
     images: [
       '/assets/bowls/golden-passion/GoldenPassion.jpg',
       '/assets/bowls/golden-passion/GoldenPassion2.jpg',
@@ -25,6 +28,9 @@ export const products = [
     title: 'Energiboost',
     featured: true,
     topSeller: false,
+    isNew: false,
+    type: 'Acaibowls',
+    tags: ['Klassisk', 'Energi'],
     images: ['/assets/bowl2.jpg', '/assets/bowl2-alt1.jpg'],
     description: 'Gir deg et energikick med smak av bringebær og banan.',
     toppings: ['🍌 Banan', '🍓 Jordbær', '🍯 Honning', '🥜 Peanøttsmør'],
@@ -40,6 +46,9 @@ export const products = [
     title: 'Energiboost',
     featured: true,
     topSeller: true,
+    isNew: false,
+    type: 'Acaibowls',
+    tags: ['Klassisk'],
     images: ['/assets/bowl2.jpg', '/assets/bowl2-alt1.jpg'],
     description: 'Gir deg et energikick med smak av bringebær og banan.',
     toppings: ['🍌 Banan', '🍓 Jordbær', '🍯 Honning', '🥜 Peanøttsmør'],
@@ -55,6 +64,9 @@ export const products = [
     title: 'Amazon Mix',
     featured: true,
     topSeller: true,
+    isNew: true,
+    type: 'Acaibowls',
+    tags: ['Tropisk', 'Fruktig'],
     images: ['/assets/bowl3.jpg', '/assets/bowl3-alt1.jpg'],
     description: 'En fruktig miks inspirert av Amazonas.',
     toppings: ['🍇 Açaí', '🥝 Kiwi', '🍍 Ananas', '🥥 Kokos'],
@@ -65,5 +77,5 @@ export const products = [
       Stor: 200,
     },
   },
-  // 👉 flere produkter uten `topSeller: true` hvis du har
+  // 👉 Du kan fortsette med flere produkter her
 ];

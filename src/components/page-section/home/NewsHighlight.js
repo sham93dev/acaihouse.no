@@ -6,31 +6,31 @@ export default function NewsHighlight() {
   return (
     <>
       {/* Øvre bølgeovergang – dryppende açaí-stil */}
-      <div className="wave-top bg-light p-0 m-0">
-        <svg
-          viewBox="0 0 1440 150"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          style={{
-            display: 'block',
-            width: '100%',
-            height: '150px',
-            transform: 'rotate(180deg)',
-          }}
-        >
-          <path
-            d="M0,0 
-              C46,30 192,60 288,40 
-              C384,20 480,60 576,40 
-              C672,20 768,60 864,40 
-              C960,20 1056,60 1152,40 
-              C1248,20 1344,60 1440,30 
-              L1440,0 
-              Z"
-            fill="#702c91"
-          />
-        </svg>
-      </div>
+<div className="wave-top bg-light p-0 m-0">
+  <svg
+    viewBox="0 0 1440 150"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="none"
+    style={{
+      display: 'block',
+      width: '100%',
+      height: '150px',
+      transform: 'rotate(180deg)',
+    }}
+  >
+    <path
+      d="M0,0 
+         C200,5 192,30 288,20 
+         C384,10 480,30 576,20 
+         C672,10 768,30 864,20 
+         C960,10 1056,30 1152,20 
+         C1248,18 1344,10 1440,20 
+         L1440,0 
+         Z"
+      fill="#702c91"
+    />
+  </svg>
+</div>
 
       {/* Nyhetsseksjon – lilla med midtstilt innhold */}
       <section

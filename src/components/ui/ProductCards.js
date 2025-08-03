@@ -1,6 +1,5 @@
-// src/components/ui/ProductCard.js
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export default function ProductCard({ product }) {
@@ -12,7 +11,25 @@ export default function ProductCard({ product }) {
     0;
 
   return (
-    <Card className="product-card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+    <Card className="product-card h-100 shadow-sm border-0 rounded-4 overflow-hidden position-relative">
+      {/* ✅ Badges */}
+      {product.isNew && (
+        <Badge
+          bg="warning"
+          className="position-absolute top-0 start-0 m-2 text-dark fw-semibold"
+        >
+          Nyhet
+        </Badge>
+      )}
+      {product.topSeller && (
+        <Badge
+          bg="danger"
+          className="position-absolute top-0 end-0 m-2 text-white fw-semibold"
+        >
+          Bestselger
+        </Badge>
+      )}
+
       <Link to={`/produkt/${product.slug}`} className="text-decoration-none text-dark">
         <Card.Img
           variant="top"
@@ -21,7 +38,9 @@ export default function ProductCard({ product }) {
           className="product-card-img"
         />
         <Card.Body className="d-flex flex-column">
-          <Card.Title className="product-card-title fw-bold">{product.title}</Card.Title>
+          <Card.Title className="product-card-title fw-bold">
+            {product.title}
+          </Card.Title>
           <Card.Text className="product-card-price text-muted">
             Kr {price.toLocaleString('no-NO')},-
           </Card.Text>

@@ -27,16 +27,16 @@ function NavbarComponent() {
             <Nav.Link as={Link} to="/" className="nav-link-custom">
               Hjem
             </Nav.Link>
-            <Nav.Link as={Link} to="/bestill" className="nav-link-custom">
+            <Nav.Link as={Link} to="/products" className="nav-link-custom">
               Bestill
             </Nav.Link>
             <Nav.Link as={Link} to="/acai" className="nav-link-custom">
               Acai
             </Nav.Link>
-            <Nav.Link as={Link} to="/kontakt" className="nav-link-custom">
+            <Nav.Link as={Link} to="/contact" className="nav-link-custom">
               Kontakt oss
             </Nav.Link>
-            <Nav.Link as={Link} to="/kontakt" className="nav-link-custom">
+            <Nav.Link as={Link} to="/about" className="nav-link-custom">
               Om oss
             </Nav.Link>
           </Nav>
