@@ -34,3 +34,37 @@
     color: black;
   }
 }
+
+// WOLT BUTTON
+.btn-wolt {
+  background-color: $wolt;
+  color: white;
+  padding: 0.6rem 1.4rem;
+  border-radius: 0.6rem;
+  font-weight: 500;
+  border: none;
+  transition: background-color 0.2s ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    background-color: darken($wolt, 10%); // eller bruk f.eks. #0090bf direkte
+    color: white;
+  }
+}
+
+// FOODORA BUTTON
+.btn-foodora {
+  background-color: $foodora;
+  color: white;
+  padding: 0.6rem 1.4rem;
+  border-radius: 0.6rem;
+  font-weight: 500;
+  border: none;
+  transition: background-color 0.2s ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    background-color: darken($foodora, 10%); // eller f.eks. #b4005f
+    color: white;
+  }
+}

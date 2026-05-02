@@ -1,0 +1,49 @@
+/* About.css */
+.background-circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(123, 79, 255, 0.12); /* Lilla, svak */
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 15px rgba(123, 79, 255, 0.1);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.circle-1 {
+  width: 250px;
+  height: 250px;
+  top: 10%;
+  left: -80px;
+}
+
+.circle-2 {
+  width: 150px;
+  height: 150px;
+  bottom: 10%;
+  right: -50px;
+  animation-delay: 2s;
+}
+
+.circle-3 {
+  width: 400px;
+  height: 400px;
+  top: 60%;
+  left: 60%;
+  animation-delay: 4s;
+}

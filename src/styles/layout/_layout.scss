@@ -51,3 +51,19 @@ h1, h2, h3, h4, h5, h6 {
     height: auto !important;
   }
 }
+
+
+.product-thumbnails img {
+  cursor: pointer;
+  object-fit: cover;
+  max-height: 100px;
+  border-radius: 2px;
+  transition: border 0.2s ease;
+
+  &.active {
+    border: 2px solid $light-purple;
+  }
+}
+
+
+

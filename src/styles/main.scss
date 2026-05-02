@@ -15,7 +15,9 @@ $theme-colors: map-merge(
     "light-purple": $light-purple,
     "light-yellow": $light-yellow,
     "product-bg": $product-bg,
-    "dark-purple-100": $dark-purple-100
+    "dark-purple-100": $dark-purple-100,
+    "wolt": $wolt,
+    "foodora": $foodora
   ),
   $theme-colors
 );
@@ -33,4 +35,5 @@ $theme-colors: map-merge(
 @import "./components/productCard";
 @import "./components//newsHighlight";
 @import "./components//aboutTeaserSection";
+@import "./layout/about";
 

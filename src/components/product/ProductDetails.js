@@ -10,6 +10,7 @@ import {
   Carousel,
   Form,
   Breadcrumb,
+  Accordion,
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { products } from '../../data/acaibowls';
@@ -17,7 +18,8 @@ import { products } from '../../data/acaibowls';
 export default function ProductDetails() {
   const { slug } = useParams();
   const product = products.find((p) => p.slug === slug);
-  const [size, setSize] = useState('Medium'); // ✅ Default til Medium
+  const [size, setSize] = useState('Medium');
+  const [activeIndex, setActiveIndex] = useState(0);
 
   if (!product) {
     return (
@@ -43,26 +45,43 @@ export default function ProductDetails() {
       </Breadcrumb>
 
       <Row className="gx-5 gy-5 align-items-start">
-        {/* Bilder */}
+        {/* 📸 Bilder */}
         <Col lg={6}>
-          <Carousel fade interval={null} className="rounded overflow-hidden">
+          <Carousel
+            fade
+            interval={null}
+            activeIndex={activeIndex}
+            onSelect={(selectedIndex) => setActiveIndex(selectedIndex)}
+            className="rounded overflow-hidden"
+            touch={true}
+          >
             {product.images.map((img, idx) => (
               <Carousel.Item key={idx}>
-                <img className="d-block w-100" src={img} alt={`${product.title} ${idx}`} />
+                <img
+                  className="d-block w-100"
+                  src={img}
+                  alt={`${product.title} ${idx}`}
+                />
               </Carousel.Item>
             ))}
           </Carousel>
 
-          <Row className="mt-3 g-2 d-none d-md-flex">
+          <Row className="mt-3 g-2 product-thumbnails">
             {product.images.map((img, idx) => (
-              <Col xs={4} key={idx}>
-                <Image src={img} alt={`thumb-${idx}`} thumbnail className="w-100 border-0" />
+              <Col xs={3} sm={2} md={4} key={idx}>
+                <Image
+                  src={img}
+                  alt={`thumb-${idx}`}
+                  thumbnail
+                  onClick={() => setActiveIndex(idx)}
+                  className={`w-100 ${idx === activeIndex ? 'active' : ''}`}
+                />
               </Col>
             ))}
           </Row>
         </Col>
 
-        {/* Info */}
+        {/* 📝 Info */}
         <Col lg={6}>
           <Badge
             bg="purple"
@@ -77,7 +96,7 @@ export default function ProductDetails() {
           </h4>
           <p>{product.description}</p>
 
-          {/* Størrelsevalg */}
+          {/* 🔘 Velg størrelse */}
           {product.sizes && (
             <Form.Group className="mb-4 mt-1" controlId="sizeSelect">
               <Form.Label className="fw-semibold">Velg størrelse</Form.Label>
@@ -95,59 +114,80 @@ export default function ProductDetails() {
             </Form.Group>
           )}
 
-          {/* Innhold + allergener */}
-          <div className="d-flex flex-wrap mt-4" style={{ gap: '10px' }}>
-            {product.toppings?.length > 0 && (
-              <div style={{ flex: '1 1 0%' }}>
-                <h5 className="mb-2">Innhold</h5>
-                <ul className="list-unstyled mb-0">
-                  {product.toppings.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {product.allergens?.length > 0 && (
-              <div style={{ flex: '1 1 40%' }}>
-                <h5 className="mb-2">Allergener</h5>
-                <ul className="list-unstyled text-danger mb-0">
-                  {product.allergens.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
+          {/* 🛍️ Bestillingsknapper */}
+          <div className="d-flex flex-column gap-3 mb-4">
+            <a
+              href="https://wolt.com/nb/nor"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-wolt d-flex align-items-center justify-content-center gap-2 w-100 py-3 fs-5"
+            >
+              Bestill fra
+              <img
+                src="/assets/wolt-btn-logo.png"
+                alt="Wolt"
+                style={{ height: '16px', width: 'auto' }}
+              />
+            </a>
+
+            <a
+              href="https://www.foodora.no"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-foodora d-flex align-items-center justify-content-center gap-2 w-100 py-3 fs-5"
+            >
+              Bestill fra
+              <img
+                src="/assets/foodora-btn-logo.png"
+                alt="Foodora"
+                style={{ height: '16px', width: 'auto' }}
+              />
+            </a>
           </div>
 
+          {/* 🟢 Status */}
           <div className="mt-4">
             <h6 className="fw-semibold mb-1">Lagestatus</h6>
             <p className="mb-2 my-2">🟢 Tilgjengelig for levering</p>
           </div>
 
+          {/* 📦 Leverandørinfo */}
           <Card className="mb-4 p-3 border-0 bg-light mt-2">
             <h6 className="fw-semibold mb-2">Tilgjengelig hos</h6>
-            <p className="mb-0">Kan bestille hos både Wolt og Foodora</p>
+            <small className="mb-0">Kan bestilles hos både Wolt og Foodora</small>
           </Card>
 
-          <div className="d-flex flex-column flex-md-row gap-3 btn-lg">
-            <a
-              href="https://wolt.com/nb/nor"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-info text-white fw-semibold"
-              aria-label={`Bestill ${product.title} fra Wolt`}
-            >
-              Bestill fra Wolt
-            </a>
-            <a
-              href="https://www.foodora.no"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-danger text-white fw-semibold"
-              aria-label={`Bestill ${product.title} fra Foodora`}
-            >
-              Bestill fra Foodora
-            </a>
+          {/* 🧾 Accordion for innhold og allergener */}
+          <div className="mb-4">
+            <Accordion defaultActiveKey="">
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Ingredienser & Allergener</Accordion.Header>
+                <Accordion.Body>
+                  <div className="d-flex flex-wrap">
+                    {product.toppings?.length > 0 && (
+                      <div style={{ flex: '1 1 0%' }}>
+                        <h5 className="mb-2">Innhold</h5>
+                        <ul className="list-unstyled mb-0">
+                          {product.toppings.map((item, idx) => (
+                            <li key={idx}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {product.allergens?.length > 0 && (
+                      <div style={{ flex: '1 1 0%' }}>
+                        <h5 className="mb-2">Allergener</h5>
+                        <ul className="list-unstyled text-danger mb-0">
+                          {product.allergens.map((item, idx) => (
+                            <li key={idx}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
           </div>
         </Col>
       </Row>

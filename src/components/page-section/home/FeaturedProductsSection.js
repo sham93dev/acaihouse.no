@@ -31,7 +31,7 @@ export default function FeaturedProductsSection() {
           </Row>
 
           <div className="text-center mt-4">
-            <Link to="/produkter">
+            <Link to="/products">
               <Button className="bg-light-purple border-0 btn-lg mt-5" variant="primary">
                 Jeg vil se alle
               </Button>
